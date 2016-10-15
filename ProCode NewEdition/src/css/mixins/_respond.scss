@@ -1,0 +1,68 @@
+@function next-respond( $to) {
+	@if $to == 'xs' {
+		@return 'sm';
+	}
+	@else if $to == 'sm' {
+		@return 'md';
+	}
+	@else if $to == 'md' {
+		@return 'lg';
+	}
+	@else if $to == 'lg' {
+		@return 'xl';
+	}
+}
+
+@function prev-respond( $to) {
+
+	@if $to == 'sm' {
+		@return 'xs';
+	}
+	@else if $to == 'md' {
+		@return 'sm';
+	}
+	@else if $to == 'lg' {
+		@return 'md';
+	}
+	@else if $to == 'xl' {
+		@return 'lg';
+	}
+}
+
+//$round prev/next and '', $orient lw lh
+@mixin respond-to( $grid-breakpoint, $round: '', $orient: '') {
+	$media: 'only screen';
+
+	@if $orient == 'lw' {
+		$media: $media + ' and (orientation: landscape)';
+	}
+	@elseif $orient == 'lh' {
+		$media: $media + ' and (orientation: portrait)';
+	}
+
+	@if $round == 'next' {
+		//this and next
+		$width: map-get( $grid-breakpoints, $grid-breakpoint) + 1;
+		$media: $media + ' and (min-width: ' + $width + ' )';
+	}
+
+	@elseif $round == 'prev' {
+		//this and prev
+		$width: map-get( $grid-breakpoints, $grid-breakpoint);
+		$media: $media + ' and (max-width: ' + $width + ' )';
+	}
+	@else {
+		$width: map-get( $grid-breakpoints, $grid-breakpoint) + 1;
+
+		@if $grid-breakpoint == 'xl' {
+			$media: $media + ' and (min-width: ' + $width + ' )';
+		}
+		@else {
+			$next-grid-breakpoint: next-respond( $grid-breakpoint);
+			$widthNext:  map-get( $grid-breakpoints, $next-grid-breakpoint);
+			$media: $media + ' and (min-width: ' + $width + ' ) and (max-width: ' + $widthNext + ' )';
+		}
+	}
+
+	@media #{$media} { @content };
+}

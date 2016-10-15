@@ -1,0 +1,32 @@
+.main-info {
+  margin-top: 60px;
+  min-height: 600px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background-image: url(../img/main-info.jpg);
+  color: #fff;
+}
+.kredo {
+  margin-top: 200px;
+
+  & > h1 {
+    font-size: 72px;
+    margin-bottom: 16px;
+    font-family: 'PF Din Text Comp Pro XBlack';
+
+    & > p {
+      font-size: 22px;
+      font-weight: 600;
+    }
+  }
+}
+.arrow {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+
+  &:hover {
+    color: #EAE3E3;
+  }
+}

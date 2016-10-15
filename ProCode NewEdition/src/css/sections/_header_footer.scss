@@ -1,0 +1,70 @@
+header, footer {
+  background-color: rgb(34, 34, 34);
+  min-height: 60px;
+  width: 100%;
+  color: #fff;
+  position: relative;
+
+  .phone {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    letter-spacing: 1.5px;
+
+    i {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    & > span {
+      display: block;
+      margin-top: 0px;
+      padding-left: 5px;
+    }
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+
+  .logo {
+    padding: 8px 20px;
+
+    a {
+      font-weight: 700;
+      font-size: 26px;
+    }
+  }
+
+  & > nav {
+    padding-top: 0.1em;
+    width: 40%;
+    margin-left: 180px;
+
+    & > ul {
+      justify-content: space-between;
+      vertical-align: middle;
+      font-size: 15px;
+
+      a {
+        padding-bottom: 3px;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+          border-bottom: 2px solid #a30d0e;
+        }
+      }
+    }
+  }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+footer p {
+  margin-left: 180px;
+}

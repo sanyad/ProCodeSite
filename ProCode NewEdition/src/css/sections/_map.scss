@@ -1,0 +1,10 @@
+.map {
+  height: 600px;
+  text-align: center;
+}
+
+@include respond-to( md, prev, lh) {
+  .map {
+    display: none;
+  }
+}
